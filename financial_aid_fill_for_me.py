@@ -30,8 +30,8 @@ class PythonOrgSearch(unittest.TestCase):
 
 		driver.get("https://www.coursera.org/?authMode=login")
 
-		email = input("Enter the username to login: ")
-		password = input("Enter the password to login: ")
+		email = 'asingh191198@outlook.com'
+		password = 'aadarshcoursera@123'
 
 		inp = driver.find_element_by_xpath("//*[@name='email']")
 		inp.send_keys(email)
