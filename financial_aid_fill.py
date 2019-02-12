@@ -32,14 +32,12 @@ class PythonOrgSearch(unittest.TestCase):
 	def test_search_in_python_org(self):
 		driver = self.driver
 
-		driver.get("https://www.coursera.org/?authMode=login")
+		# driver.get("https://www.coursera.org/?authMode=login")
 
 		#************************Login****************************
 
 		# email = input("Enter the username to login: ")
 		# password = input("Enter the password to login: ")
-		# email = "asingh191198@outlook.com"
-		# password = 'aadarsh.coursera@123'
 
 		# inp = driver.find_element_by_xpath("//*[@name='email']")
 		# inp.send_keys(email)
@@ -52,8 +50,7 @@ class PythonOrgSearch(unittest.TestCase):
 		#**********************************************************
 
 		
-		# url = input("Enter the url of the specialization: ")
-		url = 'https://www.coursera.org/specializations/self-driving-cars'
+		url = input("Enter the url of the specialization: ")
 		driver.get(url)
 
 
