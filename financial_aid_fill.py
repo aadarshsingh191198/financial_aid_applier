@@ -16,7 +16,11 @@ import sys
 class PythonOrgSearch(unittest.TestCase):
 
 	def setUp(self):
-		profile = webdriver.FirefoxProfile()
+		profile = webdriver.FirefoxProfile('C:\\Users\\AADARSH\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\m8pvbyp0.default')
+
+		# driver = webdriver.Firefox(fp)
+		# profile = webdriver.FirefoxProfile()
+
 		# 1 - Allow all images
 		# 2 - Block all images
 		# 3 - Block 3rd party images 
@@ -30,20 +34,26 @@ class PythonOrgSearch(unittest.TestCase):
 
 		driver.get("https://www.coursera.org/?authMode=login")
 
-		email = input("Enter the username to login: ")
-		password = input("Enter the password to login: ")
+		#************************Login****************************
 
-		inp = driver.find_element_by_xpath("//*[@name='email']")
-		inp.send_keys(email)
+		# email = input("Enter the username to login: ")
+		# password = input("Enter the password to login: ")
+		# email = "asingh191198@outlook.com"
+		# password = 'aadarsh.coursera@123'
 
-		pas = driver.find_element_by_xpath("//*[@name='password']")
-		pas.send_keys(password)
+		# inp = driver.find_element_by_xpath("//*[@name='email']")
+		# inp.send_keys(email)
 
-		elem = driver.find_element_by_xpath("//*[@id='authentication-box-content']/div/div[2]/div/div[1]/form/div[1]/button")
-		elem.click()
+		# pas = driver.find_element_by_xpath("//*[@name='password']")
+		# pas.send_keys(password)
+
+		# elem = driver.find_element_by_xpath("//*[@id='authentication-box-content']/div/div[2]/div/div[1]/form/div[1]/button")
+		# elem.click()
+		#**********************************************************
+
 		
-		url = input("Enter the url of the specialization: ")
-
+		# url = input("Enter the url of the specialization: ")
+		url = 'https://www.coursera.org/specializations/self-driving-cars'
 		driver.get(url)
 
 
@@ -91,7 +101,7 @@ class PythonOrgSearch(unittest.TestCase):
 			print("Going to click the financial aid button")
 			try:
 				elem = driver.find_elements_by_class_name("button-link")[2]
-				print(driver.find_elements_by_class_name("button-link")[0],"Hello")
+				# print(driver.find_elements_by_class_name("button-link")[0],"Hello")
 				elem.click()
 				print("Successful")
 			except:

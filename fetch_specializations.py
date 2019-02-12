@@ -27,7 +27,7 @@ class PythonOrgSearch(unittest.TestCase):
 		# print(nextPage.size())
 		# count = 1
 		try:
-			for count in range(10):
+			for count in range(11):
 				for i in range(2):
 					elem = driver.find_elements_by_xpath("//*[@id='rendered-content']/div/div/div/div[2]/div[2]/div/div[1]/div/div["+str(i+1)+"]/ul/li")
 					try:
@@ -54,19 +54,26 @@ class PythonOrgSearch(unittest.TestCase):
 
 				time.sleep(10)	
 		except:
-			
+			pass
 		print(courses,len(courses))
 
 	# def test_database_fill(self):
-		conn = sqlite3.connect('coursera.sqlite')
-		cur = conn.cursor()
+		try:
+			conn = sqlite3.connect('coursera.sqlite')
+			cur = conn.cursor()
 
-		cur.execute('''CREATE TABLE IF NOT EXISTS Specializations (Name TEXT, URL TEXT)''')
+			cur.execute('''CREATE TABLE if not exists Specializations (Specialisation_id integer not null primary key autoincrement, Name TEXT, URL TEXT)''')
 
-		for course in courses:
-			cur.execute('''INSERT INTO Specializations (Name,URL)  VALUES ( ? ,?)''', (course['name'], course['url'] ) )
+			for course in courses:
+				cur.execute('''INSERT OR IGNORE INTO Specializations (Name,URL)  VALUES ( ? ,?)''', (course['name'], course['url'] ) )
 
-		conn.commit()
+			conn.commit()
+		except:
+			fh = open('temp.txt','w+',encoding='utf-8')
+			fh.write(str(courses))
+			fh.close()
+			print("Some error occured. Saved the scraped data in temp.txt file")
+			
 	def tearDown(self):
 		self.driver.close()
 

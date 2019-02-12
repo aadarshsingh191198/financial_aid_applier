@@ -26,13 +26,13 @@ while True:
 	choices = cur.fetchall()
 	print("****************************Available Courses***************************\n")
 	for index,row in enumerate(choices):
-		print(index+1,". ", row[0])
+		print(index+1,". ", row[1])
 	print("\n************************************************************************")
 
 
 	choice = int(input("Enter the row number(Between 1 and "+str(len(choices))+") or -1 if you didn't find the course: "))
 	if choice != -1: 
-		print("Go to this url: ", choices[choice-1][1])
+		print("Go to this url: ", choices[choice-1][2])
 		break
 	else:		
 		print("Change the query terms and try again\n\n")
