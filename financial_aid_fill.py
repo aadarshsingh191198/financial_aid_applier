@@ -135,7 +135,7 @@ class PythonOrgSearch(unittest.TestCase):
 				elem =driver.find_element_by_xpath("//*[@id='rendered-content']/div/div/div[1]/div/div/div[2]/button")
 				elem.click()
 				print("Successful")
-			except Exception as e:
+			except:
 				print("Unsuccessful, click manually")
 				time.sleep(10)
 
